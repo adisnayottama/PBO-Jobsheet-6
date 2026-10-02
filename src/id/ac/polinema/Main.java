@@ -3,25 +3,9 @@ package id.ac.polinema;
 public class Main {
     public static void main(String[] args) {
         Customer customer1 = new Customer("Nadia", "0812-0000-0001");
-        Account acc1 = new Account("A001", customer1, 500000);
-        Account acc2 = new Account("A003", customer1, 1000000);
+        SavingsAccount acc1 = new SavingsAccount("A001", customer1, 500000, 0.01);
         acc1.withdraw(150000);
-
-        Customer customer2 = new Customer("Sari", "0812-0000-0002");
-        Account acc3 = new Account("A002", customer2, 200000);
-
-        Bank bank = new Bank(10);
-        bank.addAccount(acc1);
-        bank.addAccount(acc2);
-        bank.addAccount(acc3);
-        bank.printAllAccounts();
-
-        //Menampilkan Account dengan findAccountByOwnerName
-        System.out.println("\nPencarian Rekening Nadia");
-        Account[] nadiaAccounts = bank.findAccountsByOwnerName("Nadia");
-        System.out.println("Jumlah rekening ditemukan: " + nadiaAccounts.length);
-        for (Account acc : nadiaAccounts) {
-            acc.printInfo();
-        }
+        acc1.printInfo();
+        acc1.printAccountType();
     }
 }
